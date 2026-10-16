@@ -166,6 +166,7 @@ describe('Regression Tests: Audit Discovered Bugs & Edge Cases', () => {
       expect(res.body.success).toBe(true);
     });
   });
+<<<<<<< HEAD
 
   describe('Bug Fix: Judge0 Status 4 Output Normalization Rescue', () => {
     it('accepts submission when Judge0 reports status 4 (raw diff failure) but CodeArena comparison policy validates semantic equivalence', async () => {
@@ -210,3 +211,6 @@ describe('Regression Tests: Audit Discovered Bugs & Edge Cases', () => {
   });
 });
 
+=======
+});
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1

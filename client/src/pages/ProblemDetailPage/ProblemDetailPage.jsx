@@ -177,11 +177,14 @@ export function ProblemDetailPage() {
   const handleRunCode = async () => {
     if (isRunning || isSubmitting) return;
 
+<<<<<<< HEAD
     if (!user) {
       toast.error('Authentication is required to run solutions. Please sign in.');
       return;
     }
 
+=======
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1
     setIsRunning(true);
     setJudgeConfigError(null);
 
@@ -264,6 +267,7 @@ export function ProblemDetailPage() {
     }
   };
 
+<<<<<<< HEAD
   const handleSubmitRef = useRef(handleSubmit);
   useEffect(() => {
     handleSubmitRef.current = handleSubmit;
@@ -287,6 +291,8 @@ export function ProblemDetailPage() {
     });
   };
 
+=======
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1
   // Loading State
   if (loading) {
     return (
@@ -634,7 +640,10 @@ export function ProblemDetailPage() {
           <div className={styles.editorBody}>
             <Editor
               height="100%"
+<<<<<<< HEAD
               onMount={handleEditorMount}
+=======
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1
               language={
                 language === 'cpp'
                   ? 'cpp'

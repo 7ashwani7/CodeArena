@@ -239,8 +239,13 @@ npm run seed
 ```
 
 This creates:
+<<<<<<< HEAD
 - **Standard User**: `alex@codearena.dev` / `DemoPass123!`
 - **Admin User**: `admin@codearena.dev` / `AdminPass123!`
+=======
+- **Standard User**: `alex@codearena.dev` / `AlexChen123!`
+- **Admin User**: `admin@codearena.dev` / `AdminCodeArena123!`
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1
 
 ### 4. Run Development Environment
 ```bash

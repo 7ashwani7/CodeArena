@@ -267,6 +267,7 @@ describe('Coding Workspace & Submission Workflow', () => {
     expect(screen.getByText('Wrong Answer')).toBeInTheDocument();
     expect(screen.getByText('45 ms')).toBeInTheDocument();
   });
+<<<<<<< HEAD
 
   describe('Regression Tests: Keyboard Shortcuts & Authentication Guards', () => {
     it('triggers solution submission when Ctrl + Enter shortcut is pressed', async () => {
@@ -322,3 +323,6 @@ describe('Coding Workspace & Submission Workflow', () => {
   });
 });
 
+=======
+});
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1

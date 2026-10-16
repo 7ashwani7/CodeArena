@@ -249,6 +249,7 @@ class Solution:
       expect(tleResult.status).toBe('Time Limit Exceeded');
       expect(tleResult.passed).toBe(false);
     });
+<<<<<<< HEAD
 
     it('rescues Judge0 status 4 when output matches under CodeArena output comparison policy', async () => {
       setJudge0ConfigOverride(true);
@@ -303,3 +304,7 @@ class Solution:
   });
 });
 
+=======
+  });
+});
+>>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1
