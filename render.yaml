@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: codearena-api
+    env: node
+    plan: free
+    region: oregon
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CLIENT_ORIGIN
+        sync: false # User sets to https://<your-codearena>.vercel.app
+      - key: MONGODB_URI
+        sync: false # User sets to mongodb+srv://<user>:<password>@<cluster>.mongodb.net/codearena
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: JUDGE0_API_URL
+        sync: false # e.g. https://judge0-ce.p.rapidapi.com or self-hosted URL
+      - key: JUDGE0_API_KEY
+        sync: false # RapidAPI Key or Self-hosted Auth Token
+      - key: JUDGE0_API_HOST
+        sync: false # Optional, judge0-ce.p.rapidapi.com if using RapidAPI

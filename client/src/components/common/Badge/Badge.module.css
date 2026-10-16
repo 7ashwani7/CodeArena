@@ -1,0 +1,66 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* Difficulty */
+.easy {
+  color: var(--color-easy);
+  background-color: var(--color-easy-bg);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.medium {
+  color: var(--color-medium);
+  background-color: var(--color-medium-bg);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.hard {
+  color: var(--color-hard);
+  background-color: var(--color-hard-bg);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Status */
+.solved {
+  color: var(--color-easy);
+  background-color: transparent;
+}
+
+.attempted {
+  color: var(--color-medium);
+  background-color: transparent;
+}
+
+.todo {
+  color: var(--text-muted);
+  background-color: transparent;
+}
+
+/* Tag */
+.tag {
+  color: var(--text-secondary);
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+.tag:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-muted);
+}
+
+/* Accent */
+.accent {
+  color: var(--accent-text);
+  background-color: var(--accent-subtle);
+  border-color: rgba(37, 99, 235, 0.2);
+}
