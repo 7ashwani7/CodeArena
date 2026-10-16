@@ -1,0 +1,203 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 720px;
+}
+
+.tagline {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.description {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Sections */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sectionSubtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.viewAllLink {
+  font-size: 0.875rem;
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.viewAllLink:hover {
+  text-decoration: underline;
+}
+
+/* Featured Problem Card */
+.featuredCard {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  transition: border-color 0.15s ease;
+}
+
+.featuredCard:hover {
+  border-color: var(--border-muted);
+}
+
+.featuredDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featuredBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.featuredTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.featuredSnippet {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+}
+
+/* Topic Grid */
+.topicGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.topicCard {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.topicCard:hover {
+  border-color: var(--border-muted);
+  background-color: var(--bg-surface-hover);
+}
+
+.topicTitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topicCount {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.topicDescription {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* System Diagnostics Banner */
+.diagnosticsBanner {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.diagnosticsInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.diagnosticsText {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.diagnosticsText strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.125rem;
+  }
+  .container {
+    padding-top: 2rem;
+    gap: 2.5rem;
+  }
+}
