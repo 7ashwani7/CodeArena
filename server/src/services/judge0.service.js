@@ -253,22 +253,11 @@ export async function executeJudgeTestCase({
 
   switch (statusId) {
     case 3: // Accepted by Judge0 execution
-<<<<<<< HEAD
     case 4: // Wrong Answer by Judge0 raw byte comparison
       // Double check against defined output comparison policy (handles JSON structures, whitespace, floats, booleans)
       passed = compareOutputs(stdout, expectedOutput);
       finalStatus = passed ? 'Accepted' : 'Wrong Answer';
       break;
-=======
-      // Double check against defined output comparison policy
-      passed = compareOutputs(stdout, expectedOutput);
-      finalStatus = passed ? 'Accepted' : 'Wrong Answer';
-      break;
-    case 4:
-      finalStatus = 'Wrong Answer';
-      passed = false;
-      break;
->>>>>>> 5ebb99200719df0c6697138cb1a3da781b3a59e1
     case 5:
       finalStatus = 'Time Limit Exceeded';
       passed = false;
