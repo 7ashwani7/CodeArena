@@ -12,7 +12,7 @@ dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = Number.parseInt(process.env.PORT, 10) || 5000;
-const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
+const CLIENT_ORIGIN = (process.env.CLIENT_ORIGIN || 'http://localhost:5173').replace(/\/+$/, '');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/codearena';
 const JWT_SECRET = process.env.JWT_SECRET || (NODE_ENV === 'production' ? null : 'dev_jwt_secret_change_in_prod');
 const COOKIE_SECRET = process.env.COOKIE_SECRET || (NODE_ENV === 'production' ? null : 'dev_cookie_secret_change_in_prod');

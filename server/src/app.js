@@ -37,6 +37,15 @@ app.use(cookieParser(env.COOKIE_SECRET));
 // Anti-CSRF protection for state-modifying requests
 app.use(csrfProtection);
 
+// Friendly root endpoint for ping and health monitors
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'online',
+    service: 'CodeArena API',
+    health: '/api/health'
+  });
+});
+
 // Root API Router
 app.use('/api', apiRoutes);
 
