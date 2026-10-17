@@ -34,6 +34,7 @@ export async function register(req, res, next) {
       res,
       {
         user: result.user,
+        token: result.jwtToken,
         csrfToken
       },
       'User registered successfully',
@@ -70,6 +71,7 @@ export async function login(req, res, next) {
       res,
       {
         user: result.user,
+        token: result.jwtToken,
         csrfToken
       },
       'Signed in successfully',

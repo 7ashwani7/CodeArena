@@ -2,7 +2,21 @@
  * Base API client configuration and fetch wrapper.
  */
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+const BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/+$/, '');
+
+export function getAuthToken() {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem('codearena_jwt');
+}
+
+export function setAuthToken(token) {
+  if (typeof window === 'undefined') return;
+  if (token) {
+    localStorage.setItem('codearena_jwt', token);
+  } else {
+    localStorage.removeItem('codearena_jwt');
+  }
+}
 
 export class ApiError extends Error {
   constructor(message, status, code, details) {
@@ -34,11 +48,13 @@ export async function request(endpoint, options = {}) {
   const url = `${BASE_URL}${cleanEndpoint}`;
 
   const csrfToken = getCsrfTokenFromCookie();
+  const authToken = getAuthToken();
 
   const defaultHeaders = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'X-Requested-With': 'XMLHttpRequest',
+    ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
     ...(csrfToken ? { 'X-CSRF-Token': csrfToken } : {})
   };
 

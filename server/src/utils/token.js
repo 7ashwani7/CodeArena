@@ -66,7 +66,7 @@ export function getAuthCookieOptions() {
   return {
     httpOnly: true, // Inaccessible to JavaScript (XSS protection)
     secure: env.isProduction, // HTTPS required in production
-    sameSite: env.isProduction ? 'strict' : 'lax', // CSRF mitigation
+    sameSite: env.isProduction ? 'none' : 'lax', // 'none' required for cross-domain cookie delivery (e.g. Vercel -> Render)
     path: '/',
     maxAge: SESSION_EXPIRY_MS
   };
@@ -80,7 +80,7 @@ export function getCsrfCookieOptions() {
   return {
     httpOnly: false, // Accessible to JavaScript so fetch client can read & send in X-CSRF-Token header
     secure: env.isProduction,
-    sameSite: env.isProduction ? 'strict' : 'lax',
+    sameSite: env.isProduction ? 'none' : 'lax',
     path: '/',
     maxAge: SESSION_EXPIRY_MS
   };

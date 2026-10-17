@@ -1,4 +1,4 @@
-import { api } from './api';
+import { api, setAuthToken } from './api';
 
 /**
  * Authentication API Service connecting frontend with backend auth endpoints
@@ -20,6 +20,9 @@ export const authService = {
       password,
       name
     });
+    if (response.data?.token) {
+      setAuthToken(response.data.token);
+    }
     return response.data;
   },
 
@@ -35,6 +38,9 @@ export const authService = {
       email,
       password
     });
+    if (response.data?.token) {
+      setAuthToken(response.data.token);
+    }
     return response.data;
   },
 
@@ -43,7 +49,11 @@ export const authService = {
    * @returns {Promise<void>}
    */
   async logout() {
-    await api.post('/auth/logout', {});
+    try {
+      await api.post('/auth/logout', {});
+    } finally {
+      setAuthToken(null);
+    }
   },
 
   /**
@@ -51,8 +61,15 @@ export const authService = {
    * @returns {Promise<object>} Current user
    */
   async getCurrentUser() {
-    const response = await api.get('/auth/me');
-    return response.data?.user || null;
+    try {
+      const response = await api.get('/auth/me');
+      return response.data?.user || null;
+    } catch (err) {
+      if (err.status === 401) {
+        setAuthToken(null);
+      }
+      throw err;
+    }
   },
 
   /**
