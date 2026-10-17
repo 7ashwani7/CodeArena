@@ -2,6 +2,7 @@ import { Problem } from '../models/Problem.js';
 import { User } from '../models/User.js';
 import { connectDB, disconnectDB } from '../config/db.js';
 import { logger } from '../utils/logger.js';
+import { CLEAN_STARTER_CODES } from './updateStarterTemplates.js';
 
 
 export const SEED_PROBLEMS = [
@@ -534,6 +535,13 @@ export const SEED_PROBLEMS = [
     acceptedCount: 0
   }
 ];
+
+// Apply clean, unsolved starter templates to all problems
+SEED_PROBLEMS.forEach((p) => {
+  if (CLEAN_STARTER_CODES[p.slug]) {
+    p.starterCode = CLEAN_STARTER_CODES[p.slug];
+  }
+});
 
 /**
  * Seeds problems into MongoDB database.
