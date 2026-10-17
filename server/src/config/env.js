@@ -10,10 +10,27 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
+function sanitizeMongoUri(rawUri) {
+  if (!rawUri) return 'mongodb://127.0.0.1:27017/codearena';
+  let uri = rawUri.trim();
+  // Strip enclosing single or double quotes
+  if ((uri.startsWith('"') && uri.endsWith('"')) || (uri.startsWith("'") && uri.endsWith("'"))) {
+    uri = uri.slice(1, -1).trim();
+  }
+  // Strip accidental variable name prefix if copied into value box
+  if (uri.startsWith('MONGODB_URI=')) {
+    uri = uri.replace(/^MONGODB_URI=/, '').trim();
+    if ((uri.startsWith('"') && uri.endsWith('"')) || (uri.startsWith("'") && uri.endsWith("'"))) {
+      uri = uri.slice(1, -1).trim();
+    }
+  }
+  return uri;
+}
+
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = Number.parseInt(process.env.PORT, 10) || 5000;
 const CLIENT_ORIGIN = (process.env.CLIENT_ORIGIN || 'http://localhost:5173').replace(/\/+$/, '');
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/codearena';
+const MONGODB_URI = sanitizeMongoUri(process.env.MONGODB_URI);
 const JWT_SECRET = process.env.JWT_SECRET || (NODE_ENV === 'production' ? null : 'dev_jwt_secret_change_in_prod');
 const COOKIE_SECRET = process.env.COOKIE_SECRET || (NODE_ENV === 'production' ? null : 'dev_cookie_secret_change_in_prod');
 
